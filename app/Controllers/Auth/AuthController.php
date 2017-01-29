@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function postSignUp($req, $res)
     {
         $validation = $this->validator->validate($req, [
-            'email' => v::noWhiteSpace()->notEmpty()->email(),
+            'email' => v::noWhiteSpace()->notEmpty()->email()->emailAvailable(),
             'name' => v::notEmpty()->alpha(),
             'password' => v::noWhiteSpace()->notEmpty(),
         ]);
