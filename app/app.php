@@ -60,6 +60,9 @@ $container['AuthController'] = function($container) {
     return new \App\Controllers\Auth\AuthController($container);
 };
 
+// Start Middleware
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
+$app->add(new \App\Middleware\OldInputMiddleware($container));
+// End Middleware
 
 require __DIR__ . '/routes.php';
